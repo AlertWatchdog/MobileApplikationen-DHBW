@@ -1,6 +1,8 @@
 package com.example.projektmobileapplikationen;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 
 import android.view.*;
@@ -53,6 +55,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
+    //ClickEvents für die Button auf dieser Seite
     @Override
     public void onClick (View view){
 
@@ -81,18 +84,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+
+    //Erstellung des Menüs
     public boolean onCreateOptionsMenu(Menu menu){
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu, menu);
         return true;
     }
 
+    //ClickEvents für die Items im Menü
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
         switch (item.getItemId()) {
             case R.id.info:
-
+                //Öffnen der Info Activity
+                Intent intent = new Intent(MainActivity.this, Info.class);
+                startActivity(intent);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
