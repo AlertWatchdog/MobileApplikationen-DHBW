@@ -23,14 +23,14 @@
         android:text="Bezeichnung"
         tools:layout_editor_absoluteX="50dp"
         tools:layout_editor_absoluteY="48dp"
-        android:layout_marginBottom="20dp"/>
+        android:layout_marginBottom="20dp" />
 
     <EditText
         android:id="@+id/editTitel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="text"
         tools:layout_editor_absoluteX="43dp"
         tools:layout_editor_absoluteY="86dp"
         android:layout_marginBottom="20dp"/>
@@ -41,6 +41,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:text="Startdatum" />
+
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="wrap_content"
@@ -53,8 +54,9 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
             android:ems="10"
-            android:text="dd"
-            android:inputType="date"
+            android:inputType="none"
+            android:hint="dd"
+            android:maxLength="2"
             app:layout_column="0"
             app:layout_row="0" />
 
@@ -64,20 +66,21 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
             android:ems="10"
-            android:text="mm"
-            android:inputType="date" />
+            android:inputType="number"
+            android:hint="mm"
+            android:maxLength="2"/>
 
         <EditText
             android:id="@+id/editAJahr"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:text="yyyy"
-            android:inputType="date" />
+            android:inputType="number"
+            android:hint="yyyy"
+            android:maxLength="4"/>
 
 
     </androidx.appcompat.widget.LinearLayoutCompat>
-
 
     <TextView
         android:id="@+id/textViewUhrzeit"
@@ -97,10 +100,11 @@
             android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="time"
-            android:text="hh"
+            android:inputType="number"
+            android:hint="hh"
             app:layout_column="1"
-            app:layout_row="0" />
+            app:layout_row="0"
+            android:maxLength="2"/>
 
         <TextView
             android:id="@+id/textView"
@@ -115,10 +119,11 @@
             android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="time"
-            android:text="mm"
+            android:inputType="number"
+            android:hint="mm"
             app:layout_column="1"
-            app:layout_row="0" />
+            app:layout_row="0"
+            android:maxLength="2"/>
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -140,10 +145,11 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
             android:ems="10"
-            android:text="dd"
-            android:inputType="date"
+            android:hint="dd"
+            android:inputType="number"
             app:layout_column="0"
-            app:layout_row="0" />
+            app:layout_row="0"
+            android:maxLength="2"/>
 
         <EditText
             android:id="@+id/editEMonat"
@@ -151,16 +157,18 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
             android:ems="10"
-            android:text="mm"
-            android:inputType="date" />
+            android:hint="mm"
+            android:inputType="number"
+            android:maxLength="2"/>
 
         <EditText
             android:id="@+id/editEJahr"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:text="yyyy"
-            android:inputType="date" />
+            android:hint="yyyy"
+            android:inputType="number"
+            android:maxLength="4"/>
 
 
     </androidx.appcompat.widget.LinearLayoutCompat>
@@ -184,10 +192,11 @@
             android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="time"
-            android:text="hh"
+            android:inputType="number"
+            android:hint="hh"
             app:layout_column="1"
-            app:layout_row="0" />
+            app:layout_row="0"
+            android:maxLength="2"/>
 
         <TextView
             android:id="@+id/textView2"
@@ -202,10 +211,11 @@
             android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="time"
-            android:text="mm"
+            android:inputType="number"
+            android:hint="mm"
             app:layout_column="1"
-            app:layout_row="0" />
+            app:layout_row="0"
+            android:maxLength="2"/>
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
