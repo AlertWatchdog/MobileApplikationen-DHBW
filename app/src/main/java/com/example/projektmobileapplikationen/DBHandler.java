@@ -23,8 +23,6 @@ public class DBHandler extends SQLiteOpenHelper {
     private static final String KEY_ENDTIME = "endzeit";
     private static final String KEY_STARTDATE = "startdatum";
     private static final String KEY_ENDDATE = "enddatum";
-    private static final String KEY_DISTANCE = "fahrtstrecke";
-    private static final String KEY_PTRANSPORT = "opnv";
     private static final String KEY_PAYMENT = "auszahlung";
 
     public DBHandler(Context context){
@@ -36,7 +34,7 @@ public class DBHandler extends SQLiteOpenHelper {
      * Date and Time columns use TEXT Datatype. Date and Time HAVE to be ISO8601 strings ("YYYY-MM-DD and HH:MM:SS.SSS").
      */
     public void onCreate(SQLiteDatabase db){
-        db.execSQL("CREATE TABLE " + TABLE_RK_NAME + "(" + KEY_ID + "INTEGER PRIMARY KEY," + KEY_BEZ + "TEXT," + KEY_STARTTIME + "TEXT," + KEY_ENDTIME + "TEXT," + KEY_STARTDATE + "TEXT," + KEY_ENDDATE + "TEXT," + KEY_PAYMENT + "REAL," + KEY_DISTANCE + "REAL," + KEY_PTRANSPORT + "REAL" + ")");
+        db.execSQL("CREATE TABLE " + TABLE_RK_NAME + "(" + KEY_ID + "INTEGER PRIMARY KEY," + KEY_BEZ + "TEXT," + KEY_STARTTIME + "TEXT," + KEY_ENDTIME + "TEXT," + KEY_STARTDATE + "TEXT," + KEY_ENDDATE + "TEXT," + KEY_PAYMENT + "REAL" + ")");
     }
 
     @Override
@@ -61,8 +59,6 @@ public class DBHandler extends SQLiteOpenHelper {
         values.put(KEY_ENDTIME, ergebnis.getEndzeit());
         values.put(KEY_STARTDATE, ergebnis.getStartdatum());
         values.put(KEY_ENDDATE, ergebnis.getEnddatum());
-        values.put(KEY_DISTANCE, ergebnis.getFahrtstrecke());
-        values.put(KEY_PTRANSPORT, ergebnis.getOPNVKosten());
         values.put(KEY_PAYMENT, ergebnis.getAuszahlung());
     }
 
@@ -85,8 +81,6 @@ public class DBHandler extends SQLiteOpenHelper {
                 ergebnis.setEndzeit(cursor.getString(3));
                 ergebnis.setStarrtdatum(cursor.getString(4));
                 ergebnis.setEnddatum(cursor.getString(5));
-                ergebnis.setFahrtstrecke(cursor.getDouble(6));
-                ergebnis.setOPNVKosten(cursor.getDouble(7));
                 ergebnis.setAuszahlung(cursor.getDouble(8));
 
                 results.add(ergebnis);
@@ -118,7 +112,7 @@ public class DBHandler extends SQLiteOpenHelper {
      */
     public Ergebnis getTripByID(int id){
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.query(TABLE_RK_NAME, new String[] {KEY_BEZ, KEY_STARTTIME, KEY_ENDTIME, KEY_STARTDATE, KEY_ENDDATE, KEY_DISTANCE, KEY_PTRANSPORT, KEY_PAYMENT}, KEY_ID + "=?", new String[] { String.valueOf(id) }, null, null, null, null);
+        Cursor cursor = db.query(TABLE_RK_NAME, new String[] {KEY_BEZ, KEY_STARTTIME, KEY_ENDTIME, KEY_STARTDATE, KEY_ENDDATE, KEY_PAYMENT}, KEY_ID + "=?", new String[] { String.valueOf(id) }, null, null, null, null);
 
         if(cursor != null)
             cursor.moveToFirst();
@@ -130,8 +124,6 @@ public class DBHandler extends SQLiteOpenHelper {
         ergebnis.setEndzeit(cursor.getString(3));
         ergebnis.setStarrtdatum(cursor.getString(4));
         ergebnis.setEnddatum(cursor.getString(5));
-        ergebnis.setFahrtstrecke(cursor.getDouble(6));
-        ergebnis.setOPNVKosten(cursor.getDouble(7));
         ergebnis.setAuszahlung(cursor.getDouble(8));
 
         return ergebnis;
@@ -154,8 +146,6 @@ public class DBHandler extends SQLiteOpenHelper {
         values.put(KEY_ENDTIME, ergebnis.getEndzeit());
         values.put(KEY_STARTDATE, ergebnis.getStartdatum());
         values.put(KEY_ENDDATE, ergebnis.getEnddatum());
-        values.put(KEY_DISTANCE, ergebnis.getFahrtstrecke());
-        values.put(KEY_PTRANSPORT, ergebnis.getOPNVKosten());
         values.put(KEY_PAYMENT, ergebnis.getAuszahlung());
 
         // actual update
