@@ -33,7 +33,9 @@
             android:inputType="textPersonName"
             tools:layout_editor_absoluteX="43dp"
             tools:layout_editor_absoluteY="86dp"
-            android:layout_marginBottom="20dp"/>
+            android:layout_marginBottom="20dp"
+            android:textSize="20dp"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/textViewDatum"
@@ -43,35 +45,19 @@
             android:text="Startdatum" />
 
 
-        <androidx.appcompat.widget.LinearLayoutCompat
+
+        <TextView
+            android:id="@+id/textviewADatum"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp">
+            android:layout_marginRight="10dp"
+            android:ems="10"
+            app:layout_column="0"
+            app:layout_row="0"
+            android:layout_marginBottom="20dp"
+            android:textStyle="bold"
+            android:textSize="18dp"/>
 
-            <TextView
-                android:id="@+id/textviewATag"
-                android:layout_width="60dp"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:ems="10"
-                app:layout_column="0"
-                app:layout_row="0" />
-
-            <TextView
-                android:id="@+id/textviewAMonat"
-                android:layout_width="60dp"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:ems="10" />
-
-            <TextView
-                android:id="@+id/textviewAJahr"
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:ems="10" />
-
-
-        </androidx.appcompat.widget.LinearLayoutCompat>
 
         <TextView
             android:id="@+id/textViewUhrzeit"
@@ -81,36 +67,17 @@
             android:text="Startzeit" />
 
 
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/textviewAUhrzeit"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="50dp">
+            android:ems="10"
+            app:layout_column="1"
+            app:layout_row="0"
+            android:layout_marginBottom="20dp"
+            android:textSize="18dp"
+            android:textStyle="bold"/>
 
-            <TextView
-                android:id="@+id/textviewAStunde"
-                android:layout_width="60dp"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                app:layout_column="1"
-                app:layout_row="0" />
-
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                android:layout_marginRight="10dp"
-                android:text=":" />
-
-            <TextView
-                android:id="@+id/textviewAMinute"
-                android:layout_width="60dp"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                app:layout_column="1"
-                app:layout_row="0" />
-
-        </androidx.appcompat.widget.LinearLayoutCompat>
 
         <TextView
             android:id="@+id/textViewEnddatum"
@@ -119,35 +86,19 @@
             android:layout_marginBottom="20dp"
             android:text="Enddatum" />
 
-        <androidx.appcompat.widget.LinearLayoutCompat
+
+        <TextView
+            android:id="@+id/textviewEDatum"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp">
+            android:layout_marginRight="10dp"
+            android:ems="10"
+            app:layout_column="0"
+            app:layout_row="0"
+            android:layout_marginBottom="20dp"
+            android:textSize="18dp"
+            android:textStyle="bold"/>
 
-            <TextView
-                android:id="@+id/textviewETag"
-                android:layout_width="60dp"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:ems="10"
-                app:layout_column="0"
-                app:layout_row="0" />
-
-            <TextView
-                android:id="@+id/textviewEMonat"
-                android:layout_width="60dp"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:ems="10" />
-
-            <TextView
-                android:id="@+id/textviewEJahr"
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:ems="10" />
-
-
-        </androidx.appcompat.widget.LinearLayoutCompat>
 
 
         <TextView
@@ -158,35 +109,36 @@
             android:text="Endzeit" />
 
 
-        <androidx.appcompat.widget.LinearLayoutCompat
+        <TextView
+            android:id="@+id/textviewEUhrzeit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            app:layout_column="1"
+            app:layout_row="0"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:layout_marginBottom="30dp" />
+
+        <TextView
+            android:id="@+id/textViewAuszahlung"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="Auszahlung"
+            android:textStyle="bold"
+            android:textSize="20dp"/>
+
+
+        <TextView
+            android:id="@+id/textviewBetrag"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp">
+            android:ems="10"
+            app:layout_column="1"
+            app:layout_row="0"
+            android:textSize="20dp"
+            android:textStyle="bold"/>
 
-            <TextView
-                android:id="@+id/textviewEStunde"
-                android:layout_width="60dp"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                app:layout_column="1"
-                app:layout_row="0" />
-
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                android:layout_marginRight="10dp"
-                android:text=":" />
-
-            <TextView
-                android:id="@+id/textviewEMinute"
-                android:layout_width="60dp"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                app:layout_column="1"
-                app:layout_row="0" />
-
-        </androidx.appcompat.widget.LinearLayoutCompat>
     </LinearLayout>
 </ScrollView>

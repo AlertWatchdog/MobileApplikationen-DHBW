@@ -10,6 +10,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -64,23 +67,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         switch(view.getId()){
             case R.id.buttonZurücksetzen:
+
+
                 editTitel.setText("");
-                editATag.setText("dd");
-                editAMonat.setText("mm");
-                editAJahr.setText("yyyy");
-                editAStunde.setText("hh");
-                editAMinute.setText("mm");
-                editETag.setText("dd");
-                editEMonat.setText("mm");
-                editEJahr.setText("yyyy");
-                editEStunde.setText("hh");
-                editEMinute.setText("mm");
+                editATag.setText("");
+                editAMonat.setText("");
+                editAJahr.setText("");
+                editAStunde.setText("");
+                editAMinute.setText("");
+                editETag.setText("");
+                editEMonat.setText("");
+                editEJahr.setText("");
+                editEStunde.setText("");
+                editEMinute.setText("");
                 break;
 
             case R.id.buttonberechnen:
 
                 try {
-                    titel = editTitel.toString();
+                    titel = editTitel.getText().toString();
                     atag = Integer.parseInt(editATag.getText().toString());
                     amonat = Integer.parseInt(editAMonat.getText().toString());
                     ajahr = Integer.parseInt(editAJahr.getText().toString());
@@ -111,11 +116,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if (atag > 30 && (amonat == 4 || amonat == 6 || amonat == 9 || amonat == 11)){
                     atag = 30;
                 }
-                if (atag > 30 && (amonat == 1 || amonat == 3 || amonat == 5 || amonat == 7 || amonat == 8 || amonat == 10 || amonat == 12)){
-                    atag = 30;
-                }
-                if (ajahr > 2019){
-                    ajahr = 2019;
+                if (atag > 31 && (amonat == 1 || amonat == 3 || amonat == 5 || amonat == 7 || amonat == 8 || amonat == 10 || amonat == 12)){
+                    atag = 31;
                 }
                 if (astunde > 23){
                     astunde = 23;
@@ -138,9 +140,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if (etag > 30 && (emonat == 1 || emonat == 3 || emonat == 5 || emonat == 7 || emonat == 8 || emonat == 10 || emonat == 12)){
                     etag = 30;
                 }
-                if (ejahr > 2019){
-                    ejahr = 2019;
-                }
                 if (estunde > 23){
                     estunde = 23;
                 }
@@ -148,8 +147,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     eminute = 59;
                 }
 
-                try {
 
+                try {
                     int wert[] = new int[10];
                     wert[0] = atag;
                     wert[1] = amonat;
