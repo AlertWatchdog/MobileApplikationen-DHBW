@@ -82,6 +82,8 @@ public class Ergebnis extends AppCompatActivity {
             }
         }
 
+
+
         if (temp.compareTo(temp2) < 0){
             if (werte[3] < 12 || (werte[3] == 12 && werte[4] == 0)){
                 ergebnis = ergebnis + 12;
@@ -89,6 +91,7 @@ public class Ergebnis extends AppCompatActivity {
             if (werte[8] > 12 || (werte[8] == 12 && werte[9] == 0)){
                 ergebnis = ergebnis + 12;
             }
+
             long difference = temp2.getTimeInMillis() - temp.getTimeInMillis();
             ergebnis = ergebnis + 24 * ((int)(difference / (1000 * 60 * 60 * 24))-1);
         }

@@ -137,8 +137,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if (etag > 30 && (emonat == 4 || emonat == 6 || emonat == 9 || emonat == 11)){
                     etag = 30;
                 }
-                if (etag > 30 && (emonat == 1 || emonat == 3 || emonat == 5 || emonat == 7 || emonat == 8 || emonat == 10 || emonat == 12)){
-                    etag = 30;
+                if (etag > 31 && (emonat == 1 || emonat == 3 || emonat == 5 || emonat == 7 || emonat == 8 || emonat == 10 || emonat == 12)){
+                    etag = 31;
                 }
                 if (estunde > 23){
                     estunde = 23;
