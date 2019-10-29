@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fillViewport="true">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp">
+
+
+        <TextView
+            android:id="@+id/textViewBezeichnung"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bezeichnung"
+            tools:layout_editor_absoluteX="50dp"
+            tools:layout_editor_absoluteY="48dp"
+            android:layout_marginBottom="20dp" />
+
+        <TextView
+            android:id="@+id/textviewTitel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            tools:layout_editor_absoluteX="43dp"
+            tools:layout_editor_absoluteY="86dp"
+            android:layout_marginBottom="20dp"
+            android:textSize="20dp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/textViewDatum"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="Startdatum" />
+
+
+
+        <TextView
+            android:id="@+id/textviewADatum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:ems="10"
+            app:layout_column="0"
+            app:layout_row="0"
+            android:layout_marginBottom="20dp"
+            android:textStyle="bold"
+            android:textSize="18dp"/>
+
+
+        <TextView
+            android:id="@+id/textViewUhrzeit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="Startzeit" />
+
+
+        <TextView
+            android:id="@+id/textviewAUhrzeit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            app:layout_column="1"
+            app:layout_row="0"
+            android:layout_marginBottom="20dp"
+            android:textSize="18dp"
+            android:textStyle="bold"/>
+
+
+        <TextView
+            android:id="@+id/textViewEnddatum"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="Enddatum" />
+
+
+        <TextView
+            android:id="@+id/textviewEDatum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:ems="10"
+            app:layout_column="0"
+            app:layout_row="0"
+            android:layout_marginBottom="20dp"
+            android:textSize="18dp"
+            android:textStyle="bold"/>
+
+
+
+        <TextView
+            android:id="@+id/textViewEndzeit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="Endzeit" />
+
+
+        <TextView
+            android:id="@+id/textviewEUhrzeit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            app:layout_column="1"
+            app:layout_row="0"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:layout_marginBottom="30dp" />
+
+        <TextView
+            android:id="@+id/textViewAuszahlung"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="Auszahlung"
+            android:textStyle="bold"
+            android:textSize="20dp"/>
+
+
+        <TextView
+            android:id="@+id/textviewBetrag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            app:layout_column="1"
+            app:layout_row="0"
+            android:textSize="20dp"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+</ScrollView>

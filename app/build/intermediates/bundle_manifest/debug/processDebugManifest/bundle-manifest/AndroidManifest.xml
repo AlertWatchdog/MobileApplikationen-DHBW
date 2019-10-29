@@ -24,6 +24,14 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
+        <activity android:name="com.example.projektmobileapplikationen.graphic" />
+        <activity android:name="com.example.projektmobileapplikationen.Ergebnis" />
+        <activity android:name="com.example.projektmobileapplikationen.Info" />
+
+        <meta-data
+            android:name="com.google.android.gms.ads.AD_MANAGER_APP"
+            android:value="true" />
+
         <activity android:name="com.example.projektmobileapplikationen.MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
