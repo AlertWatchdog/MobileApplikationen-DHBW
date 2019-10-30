@@ -47,43 +47,37 @@ public class DBHandler extends SQLiteOpenHelper {
 
     /**
      * Adds a Ergebnis (a.k.a. Businesstrip) to the DB
-     * @param ergebnis
+     * @param reise
      */
-    public void addTrip(Ergebnis ergebnis){
+    public void addTrip(Reise reise){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
 
         //Match Values from ergebnis to columns
-        values.put(KEY_BEZ, ergebnis.getBezeichnung()); //Bezeichnung == textTitel; Entscheide dich für etwas FLO!
-        values.put(KEY_STARTTIME, ergebnis.getStartzeit());
-        values.put(KEY_ENDTIME, ergebnis.getEndzeit());
-        values.put(KEY_STARTDATE, ergebnis.getStartdatum());
-        values.put(KEY_ENDDATE, ergebnis.getEnddatum());
-        values.put(KEY_PAYMENT, ergebnis.getAuszahlung());
+        values.put(KEY_BEZ, reise.getBezeichnung()); //Bezeichnung == textTitel; Entscheide dich für etwas FLO!
+        values.put(KEY_STARTTIME, reise.getStartZeit());
+        values.put(KEY_ENDTIME, reise.getEndZeit());
+        values.put(KEY_STARTDATE, reise.getStartDatum());
+        values.put(KEY_ENDDATE, reise.getEndDatum());
+        values.put(KEY_PAYMENT, reise.getAuszahlung());
     }
 
     /**
      * Returns a list of all entries in the DB
      * @return
      */
-    public List<Ergebnis> getAllTrips(){
+    public List<Reise> getAllTrips(){
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM" + TABLE_RK_NAME, null);
-        List<Ergebnis> results = new ArrayList<Ergebnis>();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_RK_NAME, null);
+        List<Reise> results = new ArrayList<Reise>();
 
         //get all results
         if(cursor.moveToFirst()){
             do{
-                Ergebnis ergebnis = new Ergebnis();
-                ergebnis.setID(cursor.getString(0)); //Ergebnisse, die Gespeichert werden bekommen von DB eine ID zugewiesen
-                ergebnis.setBezeichnung(cursor.getString(1));
-                ergebnis.setStartzeit(cursor.getString(2));
-                ergebnis.setEndzeit(cursor.getString(3));
-                ergebnis.setStarrtdatum(cursor.getString(4));
-                ergebnis.setEnddatum(cursor.getString(5));
-                ergebnis.setAuszahlung(cursor.getDouble(8));
-
-                results.add(ergebnis);
+                //create trip from db
+                Reise reise = new Reise(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getString(5), cursor.getDouble(6));
+                //add trip to list
+                results.add(reise);
             }while(cursor.moveToNext());
         }
 
@@ -110,56 +104,49 @@ public class DBHandler extends SQLiteOpenHelper {
      * @param id
      * @return Ergebnis or null, if there is no matching ergebnis (only the case if messed with the ID or the Ergebnis has not yet been saved)
      */
-    public Ergebnis getTripByID(int id){
+    public Reise getTripByID(int id){
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.query(TABLE_RK_NAME, new String[] {KEY_BEZ, KEY_STARTTIME, KEY_ENDTIME, KEY_STARTDATE, KEY_ENDDATE, KEY_PAYMENT}, KEY_ID + "=?", new String[] { String.valueOf(id) }, null, null, null, null);
 
         if(cursor != null)
             cursor.moveToFirst();
 
-        Ergebnis ergebnis = new Ergebnis();
-        ergebnis.setID(cursor.getString(0)); //Ergebnisse, die Gespeichert werden bekommen von DB eine ID zugewiesen
-        ergebnis.setBezeichnung(cursor.getString(1));
-        ergebnis.setStartzeit(cursor.getString(2));
-        ergebnis.setEndzeit(cursor.getString(3));
-        ergebnis.setStarrtdatum(cursor.getString(4));
-        ergebnis.setEnddatum(cursor.getString(5));
-        ergebnis.setAuszahlung(cursor.getDouble(8));
+        Reise reise = new Reise(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getString(5), cursor.getDouble(6));
 
-        return ergebnis;
+        return reise;
     }
 
     /**
-     * Updates one Enty. Returns numbers of successful updates (should be one)
-     * Takes the updated ergebnis as parameter.
+     * Updates one Entry. Returns numbers of successful updates (should be one)
+     * Takes the updated reise as parameter.
      * Do not mess with the ID parameter of ergebnis!
-     * @param ergebnis
+     * @param reise
      * @return
      */
-    public int updateShop(Ergebnis ergebnis) {
+    public int updateTrip(Reise reise) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         //creating Values to change
         ContentValues values = new ContentValues();
-        values.put(KEY_BEZ, ergebnis.getBezeichnung()); //Bezeichnung == textTitel; Entscheide dich für etwas FLO!
-        values.put(KEY_STARTTIME, ergebnis.getStartzeit());
-        values.put(KEY_ENDTIME, ergebnis.getEndzeit());
-        values.put(KEY_STARTDATE, ergebnis.getStartdatum());
-        values.put(KEY_ENDDATE, ergebnis.getEnddatum());
-        values.put(KEY_PAYMENT, ergebnis.getAuszahlung());
+        values.put(KEY_BEZ, reise.getBezeichnung()); //Bezeichnung == textTitel; Entscheide dich für etwas FLO!
+        values.put(KEY_STARTTIME, reise.getStartZeit());
+        values.put(KEY_ENDTIME, reise.getEndZeit());
+        values.put(KEY_STARTDATE, reise.getStartDatum());
+        values.put(KEY_ENDDATE, reise.getEndDatum());
+        values.put(KEY_PAYMENT, reise.getAuszahlung());
 
         // actual update
-        return db.update(TABLE_RK_NAME, values, KEY_ID + " = ?", new String[]{String.valueOf(ergebnis.getID())});
+        return db.update(TABLE_RK_NAME, values, KEY_ID + " = ?", new String[]{String.valueOf(reise.getId())});
     }
 
     /**
-     * Deletes the given ergebnis from the DB
-     * @param ergebnis
+     * Deletes the given Reise from the DB
+     * @param reise
      */
-    public void deleteTrip(Ergebnis ergebnis) {
+    public void deleteTrip(Reise reise) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_RK_NAME, KEY_ID + " = ?",
-                new String[] { String.valueOf(ergebnis.getId()) });
+                new String[] { String.valueOf(reise.getId()) });
         db.close();
     }
 }

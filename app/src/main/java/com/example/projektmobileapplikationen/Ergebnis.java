@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,6 +29,10 @@ public class Ergebnis extends AppCompatActivity {
     TextView textErgebnis;
     Intent intent;
 
+    private int[] werte;
+    DBHandler db;
+    private Button buttonZurücksetzen;
+
     public Ergebnis(){
 
     }
@@ -41,6 +47,8 @@ public class Ergebnis extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ergebnis);
 
+        buttonZurücksetzen = (Button) findViewById(R.id.buttonspeichern);
+
         textTitel = (TextView) findViewById((R.id.textviewTitel));
         textADatum = (TextView) findViewById(R.id.textviewADatum);
         textAUhrzeit = (TextView) findViewById(R.id.textviewAUhrzeit);
@@ -49,8 +57,9 @@ public class Ergebnis extends AppCompatActivity {
         textErgebnis = (TextView) findViewById((R.id.textviewBetrag));
 
         intent = getIntent();
-        int[] werte = intent.getIntArrayExtra("Werte");
+        werte = intent.getIntArrayExtra("Werte");
         String titel = intent.getStringExtra("Titel");
+        db = new DBHandler(this);
 
         try {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy HH:mmm");
@@ -99,6 +108,34 @@ public class Ergebnis extends AppCompatActivity {
 
         textErgebnis.setText("" + ergebnis + "€");
 
+        buttonZurücksetzen.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switch (v.getId()) {
+                    case R.id.buttonspeichern:
+                        save();
+                        break;
+                }
+            }
+        });
+
+    }
+
+    private void save(){
+        Toast.makeText(getApplicationContext(), "Daten werden gespeichert.", Toast.LENGTH_SHORT).show();
+        String[] tmp = new String[werte.length];
+        for(int i = 0; i < tmp.length; i++){
+            if(werte[i] < 10){
+                tmp[i] = "0" + werte[i];
+            } else {
+                tmp[i] = "" + werte[i];
+            }
+        }
+        Double ergebnis = Double.parseDouble(("" + textErgebnis.getText()).replace(',', '.'));
+
+        Reise reise = new Reise("" + textTitel.getText(), tmp[3] + ":" + tmp[4] + ":00.000", tmp[8] + ":" + tmp[9] + ":00.000", tmp[2] + "-" + tmp[1] + "-" + tmp[0], tmp[7] + "-" + tmp[6] + "-" + tmp[5], ergebnis);
+
+        db.addTrip(reise);
     }
 
     public Date getStartdatum(){

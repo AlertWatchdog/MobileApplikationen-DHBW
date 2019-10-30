@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_main);
 
+
             buttonZurücksetzen = (Button) findViewById(R.id.buttonZurücksetzen);
             buttonVerlauf = (Button) findViewById((R.id.buttonverlauf));
             buttonBerechnen = (Button) findViewById((R.id.buttonberechnen));
@@ -171,7 +172,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
 
             case R.id.buttonverlauf:
-                Toast.makeText(getApplicationContext(), "Hier passiert noch nichts. Wir arbeiten daran. Haben sie etwas Geduld.", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, ReiseListActivity.class);
+                startActivity(intent);
+                //Toast.makeText(getApplicationContext(), "Hier passiert noch nichts. Wir arbeiten daran. Haben sie etwas Geduld.", Toast.LENGTH_SHORT).show();
                 break;
         }
     }
