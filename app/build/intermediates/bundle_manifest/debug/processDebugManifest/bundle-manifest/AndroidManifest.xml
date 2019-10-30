@@ -24,6 +24,19 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.example.projektmobileapplikationen.ReiseListActivity"
+            android:label="@string/title_reise_list"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.example.projektmobileapplikationen.ReiseDetailActivity"
+            android:label="@string/title_reise_detail"
+            android:parentActivityName="com.example.projektmobileapplikationen.ReiseListActivity"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.projektmobileapplikationen.ReiseListActivity" />
+        </activity>
         <activity android:name="com.example.projektmobileapplikationen.graphic" />
         <activity android:name="com.example.projektmobileapplikationen.Ergebnis" />
         <activity android:name="com.example.projektmobileapplikationen.Info" />
