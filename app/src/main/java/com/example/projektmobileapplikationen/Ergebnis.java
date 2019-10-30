@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,6 +29,10 @@ public class Ergebnis extends AppCompatActivity {
     TextView textErgebnis;
     Intent intent;
 
+    private int[] werte;
+    DBHandler db;
+    private Button buttonZurücksetzen;
+
     public Ergebnis(){
 
     }
@@ -41,6 +47,8 @@ public class Ergebnis extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ergebnis);
 
+        buttonZurücksetzen = (Button) findViewById(R.id.buttonspeichern);
+
         textTitel = (TextView) findViewById((R.id.textviewTitel));
         textADatum = (TextView) findViewById(R.id.textviewADatum);
         textAUhrzeit = (TextView) findViewById(R.id.textviewAUhrzeit);
@@ -49,13 +57,15 @@ public class Ergebnis extends AppCompatActivity {
         textErgebnis = (TextView) findViewById((R.id.textviewBetrag));
 
         intent = getIntent();
-        int[] werte = intent.getIntArrayExtra("Werte");
+        werte = intent.getIntArrayExtra("Werte");
         String titel = intent.getStringExtra("Titel");
+        db = new DBHandler(this);
 
         try {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy HH:mmm");
             String start = (""+ werte[0] + "." + werte[1]+ "." + werte[2] + " " + werte[3] + ":" + werte[4]);
             Date startdatum = simpleDateFormat.parse(start);
+            //startdatum = simpleDateFormat.parse(start);
             String end = (""+ werte[5] + "." + werte[6]+ "." + werte[7] + " " + werte[8] + ":" + werte[9]);
             Date enddatum = new Date();
             enddatum = simpleDateFormat.parse(end);
@@ -72,14 +82,16 @@ public class Ergebnis extends AppCompatActivity {
 
         int ergebnis = 0;
 
-        GregorianCalendar temp = new GregorianCalendar(werte[2], werte[1]-1, werte[0]);
-        GregorianCalendar temp2 = new GregorianCalendar(werte[7], werte[6]-1, werte[5]);
+        GregorianCalendar temp = new GregorianCalendar(werte[2], werte[1], werte[0]);
+        GregorianCalendar temp2 = new GregorianCalendar(werte[7], werte[6], werte[5]);
 
         if (temp.compareTo(temp2) == 0){
             if((werte[8]*60 + werte[9] - werte[3]* 60 + werte[4] > 720)){
                 ergebnis = ergebnis +12;
             }
         }
+
+
 
         if (temp.compareTo(temp2) < 0){
             if (werte[3] < 12 || (werte[3] == 12 && werte[4] == 0)){
@@ -88,6 +100,7 @@ public class Ergebnis extends AppCompatActivity {
             if (werte[8] > 12 || (werte[8] == 12 && werte[9] == 0)){
                 ergebnis = ergebnis + 12;
             }
+
             long difference = temp2.getTimeInMillis() - temp.getTimeInMillis();
             ergebnis = ergebnis + 24 * ((int)(difference / (1000 * 60 * 60 * 24))-1);
         }
@@ -95,6 +108,34 @@ public class Ergebnis extends AppCompatActivity {
 
         textErgebnis.setText("" + ergebnis + "€");
 
+        buttonZurücksetzen.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switch (v.getId()) {
+                    case R.id.buttonspeichern:
+                        save();
+                        break;
+                }
+            }
+        });
+
+    }
+
+    private void save(){
+        Toast.makeText(getApplicationContext(), "Daten werden gespeichert.", Toast.LENGTH_SHORT).show();
+        String[] tmp = new String[werte.length];
+        for(int i = 0; i < tmp.length; i++){
+            if(werte[i] < 10){
+                tmp[i] = "0" + werte[i];
+            } else {
+                tmp[i] = "" + werte[i];
+            }
+        }
+        Double ergebnis = Double.parseDouble(("" + textErgebnis.getText()).replace(',', '.'));
+
+        Reise reise = new Reise("" + textTitel.getText(), tmp[3] + ":" + tmp[4] + ":00.000", tmp[8] + ":" + tmp[9] + ":00.000", tmp[2] + "-" + tmp[1] + "-" + tmp[0], tmp[7] + "-" + tmp[6] + "-" + tmp[5], ergebnis);
+
+        db.addTrip(reise);
     }
 
     public Date getStartdatum(){

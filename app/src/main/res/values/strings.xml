@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Projekt Mobile Applikationen</string>
+    <string name="title_reise_list">Reisen</string>
+    <string name="title_reise_detail">Reise Detail</string>
 </resources>
