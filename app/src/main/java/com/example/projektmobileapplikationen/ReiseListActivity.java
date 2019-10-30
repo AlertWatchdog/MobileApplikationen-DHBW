@@ -46,6 +46,7 @@ public class ReiseListActivity extends AppCompatActivity {
 
         db = new DBHandler(this);
 
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setTitle(getTitle());

@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     String titel;
     int atag, amonat, ajahr, astunde, aminute, etag, emonat, ejahr, estunde, eminute = 0;
+    DBHandler db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +41,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_main);
 
+            db = new DBHandler(this);
 
             buttonZurücksetzen = (Button) findViewById(R.id.buttonZurücksetzen);
             buttonVerlauf = (Button) findViewById((R.id.buttonverlauf));
@@ -59,6 +61,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             buttonZurücksetzen.setOnClickListener(this);
             buttonVerlauf.setOnClickListener(this);
             buttonBerechnen.setOnClickListener(this);
+
     }
 
 
@@ -174,7 +177,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.buttonverlauf:
                 Intent intent = new Intent(MainActivity.this, ReiseListActivity.class);
                 startActivity(intent);
-                //Toast.makeText(getApplicationContext(), "Hier passiert noch nichts. Wir arbeiten daran. Haben sie etwas Geduld.", Toast.LENGTH_SHORT).show();
                 break;
         }
     }

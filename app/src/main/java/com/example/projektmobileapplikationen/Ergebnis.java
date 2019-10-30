@@ -113,6 +113,7 @@ public class Ergebnis extends AppCompatActivity {
             public void onClick(View v) {
                 switch (v.getId()) {
                     case R.id.buttonspeichern:
+                        Toast.makeText(getApplicationContext(), "Daten werden gespeichert.", Toast.LENGTH_SHORT).show();
                         save();
                         break;
                 }

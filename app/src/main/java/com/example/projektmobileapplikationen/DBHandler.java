@@ -3,8 +3,11 @@ package com.example.projektmobileapplikationen;
 import android.content.Context;
 import android.content.ContentValues;
 import android.database.Cursor;
+import android.database.DatabaseUtils;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,7 +37,7 @@ public class DBHandler extends SQLiteOpenHelper {
      * Date and Time columns use TEXT Datatype. Date and Time HAVE to be ISO8601 strings ("YYYY-MM-DD and HH:MM:SS.SSS").
      */
     public void onCreate(SQLiteDatabase db){
-        db.execSQL("CREATE TABLE " + TABLE_RK_NAME + "(" + KEY_ID + "INTEGER PRIMARY KEY," + KEY_BEZ + "TEXT," + KEY_STARTTIME + "TEXT," + KEY_ENDTIME + "TEXT," + KEY_STARTDATE + "TEXT," + KEY_ENDDATE + "TEXT," + KEY_PAYMENT + "REAL" + ")");
+        db.execSQL("CREATE TABLE " + TABLE_RK_NAME + " ( " + KEY_ID + " INTEGER PRIMARY KEY, " + KEY_BEZ + " TEXT, " + KEY_STARTTIME + " TEXT, " + KEY_ENDTIME + " TEXT, " + KEY_STARTDATE + " TEXT, " + KEY_ENDDATE + " TEXT, " + KEY_PAYMENT + " REAL" + ")");
     }
 
     @Override
@@ -46,10 +49,10 @@ public class DBHandler extends SQLiteOpenHelper {
     }
 
     /**
-     * Adds a Ergebnis (a.k.a. Businesstrip) to the DB
+     * Adds a Reise to the DB
      * @param reise
      */
-    public void addTrip(Reise reise){
+    public String addTrip(Reise reise){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
 
@@ -60,6 +63,17 @@ public class DBHandler extends SQLiteOpenHelper {
         values.put(KEY_STARTDATE, reise.getStartDatum());
         values.put(KEY_ENDDATE, reise.getEndDatum());
         values.put(KEY_PAYMENT, reise.getAuszahlung());
+
+
+        try {
+            db.insertOrThrow(TABLE_RK_NAME, null, values);
+        } catch (SQLException e) {
+            return e.getMessage();
+        }
+
+        return "passt";
+
+
     }
 
     /**
@@ -67,7 +81,7 @@ public class DBHandler extends SQLiteOpenHelper {
      * @return
      */
     public List<Reise> getAllTrips(){
-        SQLiteDatabase db = this.getWritableDatabase();
+        SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_RK_NAME, null);
         List<Reise> results = new ArrayList<Reise>();
 
@@ -90,13 +104,9 @@ public class DBHandler extends SQLiteOpenHelper {
      * @return int
      */
     public int getTripCount(){
-        String countQuery = "SELECT * FROM " + TABLE_RK_NAME;
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery(countQuery, null);
-        cursor.close();
-
-        // return count
-        return cursor.getCount();
+        int numRows = (int) DatabaseUtils.queryNumEntries(db, TABLE_RK_NAME);
+        return numRows;
     }
 
     /**
