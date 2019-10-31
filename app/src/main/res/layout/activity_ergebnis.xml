@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:fillViewport="true">
+    android:fillViewport="true"
+    android:background="#1E90FF">
 
 
     <LinearLayout
@@ -23,7 +24,8 @@
             android:text="Bezeichnung"
             tools:layout_editor_absoluteX="50dp"
             tools:layout_editor_absoluteY="48dp"
-            android:layout_marginBottom="20dp" />
+            android:layout_marginBottom="20dp"
+            android:textColor="#FFFFFF"/>
 
         <TextView
             android:id="@+id/textviewTitel"
@@ -35,14 +37,16 @@
             tools:layout_editor_absoluteY="86dp"
             android:layout_marginBottom="20dp"
             android:textSize="20dp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"/>
 
         <TextView
             android:id="@+id/textViewDatum"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
-            android:text="Startdatum" />
+            android:text="Startdatum"
+            android:textColor="#FFFFFF"/>
 
 
 
@@ -56,7 +60,8 @@
             app:layout_row="0"
             android:layout_marginBottom="20dp"
             android:textStyle="bold"
-            android:textSize="18dp"/>
+            android:textSize="18dp"
+            android:textColor="#FFFFFF"/>
 
 
         <TextView
@@ -64,7 +69,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
-            android:text="Startzeit" />
+            android:text="Startzeit"
+            android:textColor="#FFFFFF"/>
 
 
         <TextView
@@ -76,7 +82,8 @@
             app:layout_row="0"
             android:layout_marginBottom="20dp"
             android:textSize="18dp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"/>
 
 
         <TextView
@@ -84,7 +91,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
-            android:text="Enddatum" />
+            android:text="Enddatum"
+            android:textColor="#FFFFFF"/>
 
 
         <TextView
@@ -97,7 +105,8 @@
             app:layout_row="0"
             android:layout_marginBottom="20dp"
             android:textSize="18dp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"/>
 
 
 
@@ -106,7 +115,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
-            android:text="Endzeit" />
+            android:text="Endzeit"
+            android:textColor="#FFFFFF"/>
 
 
         <TextView
@@ -118,7 +128,8 @@
             app:layout_row="0"
             android:textSize="18dp"
             android:textStyle="bold"
-            android:layout_marginBottom="30dp" />
+            android:layout_marginBottom="30dp"
+            android:textColor="#FFFFFF"/>
 
         <TextView
             android:id="@+id/textViewAuszahlung"
@@ -127,7 +138,8 @@
             android:layout_marginBottom="20dp"
             android:text="Auszahlung"
             android:textStyle="bold"
-            android:textSize="20dp"/>
+            android:textSize="20dp"
+            android:textColor="#FFFFFF"/>
 
 
         <TextView
@@ -138,13 +150,15 @@
             app:layout_column="1"
             app:layout_row="0"
             android:textSize="20dp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"/>
 
         <Button
             android:id="@+id/buttonspeichern"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Speichern"
+            android:background="@drawable/button"
             />
     </LinearLayout>
 </ScrollView>

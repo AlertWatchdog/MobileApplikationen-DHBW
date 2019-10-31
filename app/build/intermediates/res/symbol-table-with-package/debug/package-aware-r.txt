@@ -739,6 +739,7 @@ color switch_thumb_material_dark
 color switch_thumb_material_light
 color switch_thumb_normal_material_dark
 color switch_thumb_normal_material_light
+color titleColor
 color tooltip_background_dark
 color tooltip_background_light
 dimen abc_action_bar_content_inset_material
@@ -1066,6 +1067,7 @@ drawable btn_radio_off_mtrl
 drawable btn_radio_off_to_on_mtrl_animation
 drawable btn_radio_on_mtrl
 drawable btn_radio_on_to_off_mtrl_animation
+drawable button
 drawable design_bottom_navigation_item_background
 drawable design_fab_background
 drawable design_ic_visibility
@@ -1077,6 +1079,7 @@ drawable ic_launcher_foreground
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
+drawable layout
 drawable mtrl_snackbar_background
 drawable mtrl_tabs_default_indicator
 drawable navigation_empty_icon
@@ -1820,6 +1823,7 @@ style TextAppearance_AppCompat_Widget_ActionMode_Subtitle
 style TextAppearance_AppCompat_Widget_ActionMode_Subtitle_Inverse
 style TextAppearance_AppCompat_Widget_ActionMode_Title
 style TextAppearance_AppCompat_Widget_ActionMode_Title_Inverse
+style TextAppearance_AppCompat_Widget_Actionbar_Title
 style TextAppearance_AppCompat_Widget_Button
 style TextAppearance_AppCompat_Widget_Button_Borderless_Colored
 style TextAppearance_AppCompat_Widget_Button_Colored

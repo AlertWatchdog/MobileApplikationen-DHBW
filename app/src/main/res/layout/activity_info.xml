@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fillViewport="true"
+    android:background="#1E90FF">
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -16,7 +24,8 @@
         android:text="Hier könnte ihre Werbung stehen"
         tools:layout_editor_absoluteX="58dp"
         tools:layout_editor_absoluteY="88dp"
-        android:layout_marginBottom="100dp"/>
+        android:layout_marginBottom="100dp"
+        android:textColor="#FFFFFF"/>
 
     <Button
         android:id="@+id/buttonZurück"
@@ -24,5 +33,7 @@
         android:layout_height="wrap_content"
         android:text="Zurück"
         tools:layout_editor_absoluteX="79dp"
-        tools:layout_editor_absoluteY="246dp" />
+        tools:layout_editor_absoluteY="246dp"
+        android:background="@drawable/button"/>
 </LinearLayout>
+</ScrollView>

@@ -16,7 +16,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
-public class Ergebnis extends AppCompatActivity {
+public class Ergebnis extends AppCompatActivity implements View.OnClickListener {
 
     Date start = new Date();
     Date ende = new Date();
@@ -31,7 +31,7 @@ public class Ergebnis extends AppCompatActivity {
 
     private int[] werte;
     DBHandler db;
-    private Button buttonZurücksetzen;
+    private Button buttonSpeichern;
 
     public Ergebnis(){
 
@@ -47,7 +47,7 @@ public class Ergebnis extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ergebnis);
 
-        buttonZurücksetzen = (Button) findViewById(R.id.buttonspeichern);
+        buttonSpeichern = (Button) findViewById(R.id.buttonspeichern);
 
         textTitel = (TextView) findViewById((R.id.textviewTitel));
         textADatum = (TextView) findViewById(R.id.textviewADatum);
@@ -55,6 +55,9 @@ public class Ergebnis extends AppCompatActivity {
         textEDatum = (TextView) findViewById(R.id.textviewEDatum);
         textEUhrzeit = (TextView) findViewById(R.id.textviewEUhrzeit);
         textErgebnis = (TextView) findViewById((R.id.textviewBetrag));
+
+        buttonSpeichern.setOnClickListener(this);
+
 
         intent = getIntent();
         werte = intent.getIntArrayExtra("Werte");
@@ -82,8 +85,13 @@ public class Ergebnis extends AppCompatActivity {
 
         int ergebnis = 0;
 
-        GregorianCalendar temp = new GregorianCalendar(werte[2], werte[1], werte[0]);
-        GregorianCalendar temp2 = new GregorianCalendar(werte[7], werte[6], werte[5]);
+        GregorianCalendar temp = new GregorianCalendar(werte[2], werte[1]-1, werte[0]);
+        GregorianCalendar temp2 = new GregorianCalendar(werte[7], werte[6]-1, werte[5]);
+
+        if (temp.compareTo(temp2) > 0){
+            Toast.makeText(getApplicationContext(), "Das Enddatum liegt vor dem Startdatum", Toast.LENGTH_SHORT).show();
+            finish();
+        }
 
         if (temp.compareTo(temp2) == 0){
             if((werte[8]*60 + werte[9] - werte[3]* 60 + werte[4] > 720)){
@@ -108,17 +116,6 @@ public class Ergebnis extends AppCompatActivity {
 
         textErgebnis.setText("" + ergebnis + "€");
 
-        buttonZurücksetzen.setOnClickListener(new Button.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                switch (v.getId()) {
-                    case R.id.buttonspeichern:
-                        Toast.makeText(getApplicationContext(), "Daten werden gespeichert.", Toast.LENGTH_SHORT).show();
-                        save();
-                        break;
-                }
-            }
-        });
 
     }
 
@@ -137,6 +134,20 @@ public class Ergebnis extends AppCompatActivity {
         Reise reise = new Reise("" + textTitel.getText(), tmp[3] + ":" + tmp[4] + ":00.000", tmp[8] + ":" + tmp[9] + ":00.000", tmp[2] + "-" + tmp[1] + "-" + tmp[0], tmp[7] + "-" + tmp[6] + "-" + tmp[5], ergebnis);
 
         db.addTrip(reise);
+    }
+
+    @Override
+    public void onClick (View view){
+        switch(view.getId()) {
+            case R.id.buttonspeichern:
+                try {
+                    save();
+                } catch (Exception e){
+                    Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_SHORT).show();
+                }
+
+                break;
+        }
     }
 
     public Date getStartdatum(){
