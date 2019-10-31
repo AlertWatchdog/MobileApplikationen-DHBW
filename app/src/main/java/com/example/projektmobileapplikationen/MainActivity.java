@@ -72,7 +72,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch(view.getId()){
             case R.id.buttonZurücksetzen:
 
-
                 editTitel.setText("");
                 editATag.setText("");
                 editAMonat.setText("");
@@ -102,7 +101,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     eminute = Integer.parseInt(editEMinute.getText().toString());
 
                 } catch (NumberFormatException nfw){
-                    Toast.makeText(getApplicationContext(), nfw.toString(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Es müssen alle Felder ausgefüllt sein", Toast.LENGTH_LONG).show();
                     break;
                 }catch (Exception e ){
                     Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_LONG).show();
