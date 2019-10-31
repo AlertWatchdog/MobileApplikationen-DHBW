@@ -4,247 +4,272 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:fillViewport="true">
+    android:fillViewport="true"
+    android:background="#1E90FF"
+    >
 
-
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:orientation="vertical"
-    android:layout_marginTop="20dp"
-    android:layout_marginLeft="20dp">
-
-
-    <TextView
-        android:id="@+id/textViewBezeichnung"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Bezeichnung"
-        tools:layout_editor_absoluteX="50dp"
-        tools:layout_editor_absoluteY="48dp"
-        android:layout_marginBottom="20dp" />
-
-    <EditText
-        android:id="@+id/editTitel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="text"
-        tools:layout_editor_absoluteX="43dp"
-        tools:layout_editor_absoluteY="86dp"
-        android:layout_marginBottom="20dp"/>
-
-    <TextView
-        android:id="@+id/textViewDatum"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:text="Startdatum" />
+        android:layout_height="match_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
+        tools:context=".MainActivity"
+        >
 
-
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp">
-
-        <EditText
-            android:id="@+id/editATag"
-            android:layout_width="60dp"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
-            android:ems="10"
-            android:inputType="none"
-            android:hint="dd"
-            android:maxLength="2"
-            app:layout_column="0"
-            app:layout_row="0" />
-
-        <EditText
-            android:id="@+id/editAMonat"
-            android:layout_width="60dp"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
-            android:ems="10"
-            android:inputType="number"
-            android:hint="mm"
-            android:maxLength="2"/>
-
-        <EditText
-            android:id="@+id/editAJahr"
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="number"
-            android:hint="yyyy"
-            android:maxLength="4"/>
-
-
-    </androidx.appcompat.widget.LinearLayoutCompat>
-
-    <TextView
-        android:id="@+id/textViewUhrzeit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:text="Startzeit" />
-
-
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="50dp">
-
-        <EditText
-            android:id="@+id/editAStunde"
-            android:layout_width="60dp"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="number"
-            android:hint="hh"
-            app:layout_column="1"
-            app:layout_row="0"
-            android:maxLength="2"/>
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/textViewBezeichnung"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="Bezeichnung"
+            tools:layout_editor_absoluteX="50dp"
+            tools:layout_editor_absoluteY="48dp"
+            android:textColor="#FFFFFF"/>
+
+        <EditText
+            android:id="@+id/editTitel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:ems="10"
+            android:inputType="text"
+            tools:layout_editor_absoluteX="43dp"
+            tools:layout_editor_absoluteY="86dp"
+            android:textColor="#FFFFFF"/>
+
+        <TextView
+            android:id="@+id/textViewDatum"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
-            android:layout_marginRight="10dp"
-            android:text=":" />
+            android:text="Startdatum"
+            android:textColor="#FFFFFF"/>
 
-        <EditText
-            android:id="@+id/editAMinute"
-            android:layout_width="60dp"
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="number"
-            android:hint="mm"
-            app:layout_column="1"
-            app:layout_row="0"
-            android:maxLength="2"/>
+            android:layout_marginBottom="20dp"
+            >
 
-    </androidx.appcompat.widget.LinearLayoutCompat>
+            <EditText
+                android:id="@+id/editATag"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:ems="10"
+                android:hint="dd"
+                android:inputType="number"
+                android:maxLength="2"
+                app:layout_column="0"
+                app:layout_row="0"
+                android:textColor="#FFFFFF"/>
 
-    <TextView
-        android:id="@+id/textViewEnddatum"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:text="Enddatum" />
+            <EditText
+                android:id="@+id/editAMonat"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:ems="10"
+                android:hint="mm"
+                android:inputType="number"
+                android:maxLength="2"
+                android:textColor="#FFFFFF"/>
 
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp">
-
-        <EditText
-            android:id="@+id/editETag"
-            android:layout_width="60dp"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
-            android:ems="10"
-            android:hint="dd"
-            android:inputType="number"
-            app:layout_column="0"
-            app:layout_row="0"
-            android:maxLength="2"/>
-
-        <EditText
-            android:id="@+id/editEMonat"
-            android:layout_width="60dp"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
-            android:ems="10"
-            android:hint="mm"
-            android:inputType="number"
-            android:maxLength="2"/>
-
-        <EditText
-            android:id="@+id/editEJahr"
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="yyyy"
-            android:inputType="number"
-            android:maxLength="4"/>
+            <EditText
+                android:id="@+id/editAJahr"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="yyyy"
+                android:inputType="number"
+                android:maxLength="4"
+                android:textColor="#FFFFFF"/>
 
 
-    </androidx.appcompat.widget.LinearLayoutCompat>
-
-
-    <TextView
-        android:id="@+id/textViewEndzeit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:text="Endzeit" />
-
-
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp">
-
-        <EditText
-            android:id="@+id/editEStunde"
-            android:layout_width="60dp"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="number"
-            android:hint="hh"
-            app:layout_column="1"
-            app:layout_row="0"
-            android:maxLength="2"/>
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/textViewUhrzeit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
-            android:layout_marginRight="10dp"
-            android:text=":" />
+            android:text="Startzeit"
+            android:textColor="#FFFFFF"/>
 
-        <EditText
-            android:id="@+id/editEMinute"
-            android:layout_width="60dp"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="number"
-            android:hint="mm"
-            app:layout_column="1"
-            app:layout_row="0"
-            android:maxLength="2"/>
 
-    </androidx.appcompat.widget.LinearLayoutCompat>
-
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp">
-
-        <Button
-            android:id="@+id/buttonberechnen"
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Berechnen"
-            android:layout_marginRight="10dp" />
+            android:layout_marginBottom="50dp">
 
-        <Button
-            android:id="@+id/buttonZurücksetzen"
+            <EditText
+                android:id="@+id/editAStunde"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="hh"
+                android:inputType="number"
+                android:maxLength="2"
+                app:layout_column="1"
+                app:layout_row="0"
+                android:textColor="#FFFFFF"/>
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="20dp"
+                android:text=":"
+                android:textColor="#FFFFFF"/>
+
+            <EditText
+                android:id="@+id/editAMinute"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="mm"
+                android:inputType="number"
+                android:maxLength="2"
+                app:layout_column="1"
+                app:layout_row="0"
+                android:textColor="#FFFFFF"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <TextView
+            android:id="@+id/textViewEnddatum"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="Enddatum"
+            android:textColor="#FFFFFF"/>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Zurücksetzen"
-            android:layout_marginRight="10dp"/>
+            android:layout_marginBottom="20dp">
 
-        <Button
-            android:id="@+id/buttonverlauf"
+            <EditText
+                android:id="@+id/editETag"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:ems="10"
+                android:hint="dd"
+                android:inputType="number"
+                android:maxLength="2"
+                app:layout_column="0"
+                app:layout_row="0"
+                android:textColor="#FFFFFF"/>
+
+            <EditText
+                android:id="@+id/editEMonat"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:ems="10"
+                android:hint="mm"
+                android:inputType="number"
+                android:maxLength="2"
+                android:textColor="#FFFFFF"/>
+
+            <EditText
+                android:id="@+id/editEJahr"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="yyyy"
+                android:inputType="number"
+                android:maxLength="4"
+                android:textColor="#FFFFFF"/>
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        <TextView
+            android:id="@+id/textViewEndzeit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="Endzeit"
+            android:textColor="#FFFFFF"/>
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Verlauf" />
+            android:layout_marginBottom="20dp">
 
-    </androidx.appcompat.widget.LinearLayoutCompat>
+            <EditText
+                android:id="@+id/editEStunde"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="hh"
+                android:inputType="number"
+                android:maxLength="2"
+                app:layout_column="1"
+                app:layout_row="0"
+                android:textColor="#FFFFFF"/>
 
-</LinearLayout>
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="20dp"
+                android:text=":"
+                android:textColor="#FFFFFF"/>
+
+            <EditText
+                android:id="@+id/editEMinute"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="mm"
+                android:inputType="number"
+                android:maxLength="2"
+                app:layout_column="1"
+                app:layout_row="0"
+                android:textColor="#FFFFFF"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp">
+
+            <Button
+                android:id="@+id/buttonberechnen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:text="Berechnen"
+                android:background="@drawable/button"
+                />
+
+            <Button
+                android:id="@+id/buttonZurücksetzen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:text="Zurücksetzen"
+                android:background="@drawable/button"/>
+
+            <Button
+                android:id="@+id/buttonverlauf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Verlauf"
+                android:background="@drawable/button"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </LinearLayout>
 </ScrollView>
