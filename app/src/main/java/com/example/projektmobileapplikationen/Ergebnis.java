@@ -129,7 +129,7 @@ public class Ergebnis extends AppCompatActivity implements View.OnClickListener 
                 tmp[i] = "" + werte[i];
             }
         }
-        Double ergebnis = Double.parseDouble(("" + textErgebnis.getText()).replace(',', '.'));
+        Double ergebnis = Double.parseDouble(("" + textErgebnis.getText()).replace(',', '.').replace("€", ""));
 
         Reise reise = new Reise("" + textTitel.getText(), tmp[3] + ":" + tmp[4] + ":00.000", tmp[8] + ":" + tmp[9] + ":00.000", tmp[2] + "-" + tmp[1] + "-" + tmp[0], tmp[7] + "-" + tmp[6] + "-" + tmp[5], ergebnis);
 
