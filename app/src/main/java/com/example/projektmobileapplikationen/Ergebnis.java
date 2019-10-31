@@ -129,9 +129,9 @@ public class Ergebnis extends AppCompatActivity implements View.OnClickListener 
                 tmp[i] = "" + werte[i];
             }
         }
-        Double ergebnis = Double.parseDouble(("" + textErgebnis.getText()).replace(',', '.').replace("€", ""));
+        String ergebnis = textErgebnis.getText().toString().replace("€", "");
 
-        Reise reise = new Reise("" + textTitel.getText(), tmp[3] + ":" + tmp[4] + ":00.000", tmp[8] + ":" + tmp[9] + ":00.000", tmp[2] + "-" + tmp[1] + "-" + tmp[0], tmp[7] + "-" + tmp[6] + "-" + tmp[5], ergebnis);
+        Reise reise = new Reise("" + textTitel.getText(), tmp[3] + ":" + tmp[4], tmp[8] + ":" + tmp[9], tmp[2] + "-" + tmp[1] + "-" + tmp[0], tmp[7] + "-" + tmp[6] + "-" + tmp[5], ergebnis);
 
         db.addTrip(reise);
     }
@@ -145,6 +145,8 @@ public class Ergebnis extends AppCompatActivity implements View.OnClickListener 
                 } catch (Exception e){
                     Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_SHORT).show();
                 }
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
 
                 break;
         }

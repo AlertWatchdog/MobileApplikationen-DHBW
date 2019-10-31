@@ -8,9 +8,9 @@ public class Reise {
     private String endZeit;
     private String bezeichnung;
     private String id;
-    private double auszahlung;
+    private String auszahlung;
 
-    public Reise(String id, String bezeichnung, String startZeit, String endZeit, String startDatum, String endDatum, double auszahlung){
+    public Reise(String id, String bezeichnung, String startZeit, String endZeit, String startDatum, String endDatum, String auszahlung){
         this.startDatum = startDatum;
         this.endDatum = endDatum;
         this.startZeit = startZeit;
@@ -20,7 +20,7 @@ public class Reise {
         this.auszahlung = auszahlung;
     }
 
-    public Reise(String bezeichnung, String startZeit, String endZeit, String startDatum, String endDatum, double auszahlung){
+    public Reise(String bezeichnung, String startZeit, String endZeit, String startDatum, String endDatum, String auszahlung){
         this.startDatum = startDatum;
         this.endDatum = endDatum;
         this.startZeit = startZeit;
@@ -77,11 +77,11 @@ public class Reise {
         this.id = id;
     }
 
-    public double getAuszahlung() {
+    public String getAuszahlung() {
         return auszahlung;
     }
 
-    public void setAuszahlung(double auszahlung) {
+    public void setAuszahlung(String auszahlung) {
         this.auszahlung = auszahlung;
     }
 

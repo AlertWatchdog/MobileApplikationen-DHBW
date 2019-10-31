@@ -51,6 +51,15 @@ public class ReiseListActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         toolbar.setTitle(getTitle());
 
+        //Floating Button für Graph Fragment
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+
+            }
+        });
+
         if (findViewById(R.id.reise_detail_container) != null) {
             // The detail container view will be present only in the
             // large-screen layouts (res/values-w900dp).
@@ -114,7 +123,7 @@ public class ReiseListActivity extends AppCompatActivity {
         @Override
         public void onBindViewHolder(final ViewHolder holder, int position) {
             holder.mIdView.setText(mValues.get(position).getBezeichnung());
-            holder.mContentView.setText("" + mValues.get(position).getAuszahlung() + " €");
+            holder.mContentView.setText("" + mValues.get(position).getAuszahlung() + "€");
 
             holder.itemView.setTag(mValues.get(position));
             holder.itemView.setOnClickListener(mOnClickListener);

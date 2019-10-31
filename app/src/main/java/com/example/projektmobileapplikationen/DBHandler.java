@@ -37,7 +37,7 @@ public class DBHandler extends SQLiteOpenHelper {
      * Date and Time columns use TEXT Datatype. Date and Time HAVE to be ISO8601 strings ("YYYY-MM-DD and HH:MM:SS.SSS").
      */
     public void onCreate(SQLiteDatabase db){
-        db.execSQL("CREATE TABLE " + TABLE_RK_NAME + " ( " + KEY_ID + " INTEGER PRIMARY KEY, " + KEY_BEZ + " TEXT, " + KEY_STARTTIME + " TEXT, " + KEY_ENDTIME + " TEXT, " + KEY_STARTDATE + " TEXT, " + KEY_ENDDATE + " TEXT, " + KEY_PAYMENT + " REAL" + ")");
+        db.execSQL("CREATE TABLE " + TABLE_RK_NAME + " ( " + KEY_ID + " INTEGER PRIMARY KEY, " + KEY_BEZ + " TEXT, " + KEY_STARTTIME + " TEXT, " + KEY_ENDTIME + " TEXT, " + KEY_STARTDATE + " TEXT, " + KEY_ENDDATE + " TEXT, " + KEY_PAYMENT + " TEXT" + ")");
     }
 
     @Override
@@ -89,7 +89,7 @@ public class DBHandler extends SQLiteOpenHelper {
         if(cursor.moveToFirst()){
             do{
                 //create trip from db
-                Reise reise = new Reise(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getString(5), cursor.getDouble(6));
+                Reise reise = new Reise(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getString(5), cursor.getString(6));
                 //add trip to list
                 results.add(reise);
             }while(cursor.moveToNext());
@@ -116,12 +116,12 @@ public class DBHandler extends SQLiteOpenHelper {
      */
     public Reise getTripByID(int id){
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.query(TABLE_RK_NAME, new String[] {KEY_BEZ, KEY_STARTTIME, KEY_ENDTIME, KEY_STARTDATE, KEY_ENDDATE, KEY_PAYMENT}, KEY_ID + "=?", new String[] { String.valueOf(id) }, null, null, null, null);
+        Cursor cursor = db.query(TABLE_RK_NAME, new String[] {KEY_ID, KEY_BEZ, KEY_STARTTIME, KEY_ENDTIME, KEY_STARTDATE, KEY_ENDDATE, KEY_PAYMENT}, KEY_ID + "=?", new String[] { String.valueOf(id) }, null, null, null, null);
 
         if(cursor != null)
             cursor.moveToFirst();
 
-        Reise reise = new Reise(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getString(5), cursor.getDouble(6));
+        Reise reise = new Reise(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getString(5), cursor.getString(6));
 
         return reise;
     }

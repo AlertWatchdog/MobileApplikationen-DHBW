@@ -1,5 +1,8 @@
 package com.example.projektmobileapplikationen;
 
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -25,19 +28,19 @@ import android.view.MenuItem;
 public class ReiseDetailActivity extends AppCompatActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reise_detail);
         Toolbar toolbar = (Toolbar) findViewById(R.id.detail_toolbar);
         setSupportActionBar(toolbar);
 
+        DBHandler db = new DBHandler(getApplicationContext());
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own detail action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
+        fab.setOnClickListener((view) -> {
+            db.deleteTrip(db.getTripByID(Integer.parseInt(getIntent().getStringExtra(ReiseDetailFragment.ARG_ITEM_ID))));
+            Intent intent = new Intent(getApplicationContext(), ReiseListActivity.class);
+            startActivity(intent);
         });
 
         // Show the Up button in the action bar.
