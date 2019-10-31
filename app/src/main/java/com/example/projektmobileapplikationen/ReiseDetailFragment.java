@@ -7,10 +7,12 @@ import com.google.android.material.appbar.CollapsingToolbarLayout;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.projektmobileapplikationen.dummy.DummyContent;
 
@@ -30,7 +32,8 @@ public class ReiseDetailFragment extends Fragment {
     /**
      * The dummy content this fragment is presenting.
      */
-    private DummyContent.DummyItem mItem;
+    private Reise reise;
+    private DBHandler db;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -43,16 +46,19 @@ public class ReiseDetailFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        db = new DBHandler(this.getContext());
+
         if (getArguments().containsKey(ARG_ITEM_ID)) {
             // Load the dummy content specified by the fragment
             // arguments. In a real-world scenario, use a Loader
             // to load content from a content provider.
-            mItem = DummyContent.ITEM_MAP.get(getArguments().getString(ARG_ITEM_ID));
+
+            reise = db.getTripByID(Integer.parseInt(getArguments().get(ARG_ITEM_ID).toString()));
 
             Activity activity = this.getActivity();
             CollapsingToolbarLayout appBarLayout = (CollapsingToolbarLayout) activity.findViewById(R.id.toolbar_layout);
             if (appBarLayout != null) {
-                appBarLayout.setTitle(mItem.content);
+                appBarLayout.setTitle(reise.getBezeichnung());
             }
         }
     }
@@ -63,8 +69,12 @@ public class ReiseDetailFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.reise_detail, container, false);
 
         // Show the dummy content as text in a TextView.
-        if (mItem != null) {
-            ((TextView) rootView.findViewById(R.id.reise_detail)).setText(mItem.details);
+        if (reise != null) {
+            ((TextView) rootView.findViewById(R.id.textviewDADatum)).setText(reise.getStartDatum());
+            ((TextView) rootView.findViewById(R.id.textviewDAUhrzeit)).setText(reise.getStartZeit());
+            ((TextView) rootView.findViewById(R.id.textviewDEDatum)).setText(reise.getEndDatum());
+            ((TextView) rootView.findViewById(R.id.textviewDEUhrzeit)).setText(reise.getEndZeit());
+            ((TextView) rootView.findViewById(R.id.textviewDBetrag)).setText(reise.getAuszahlung() + "€");
         }
 
         return rootView;

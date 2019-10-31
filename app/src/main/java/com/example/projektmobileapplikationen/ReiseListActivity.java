@@ -51,12 +51,12 @@ public class ReiseListActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         toolbar.setTitle(getTitle());
 
+        //Floating Button für Graph Fragment
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        fab.setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+            public void onClick(View view){
+
             }
         });
 
@@ -86,10 +86,10 @@ public class ReiseListActivity extends AppCompatActivity {
         private final View.OnClickListener mOnClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DummyContent.DummyItem item = (DummyContent.DummyItem) view.getTag();
+                Reise item = (Reise) view.getTag();
                 if (mTwoPane) {
                     Bundle arguments = new Bundle();
-                    arguments.putString(ReiseDetailFragment.ARG_ITEM_ID, item.id);
+                    arguments.putString(ReiseDetailFragment.ARG_ITEM_ID, item.getId());
                     ReiseDetailFragment fragment = new ReiseDetailFragment();
                     fragment.setArguments(arguments);
                     mParentActivity.getSupportFragmentManager().beginTransaction()
@@ -98,7 +98,7 @@ public class ReiseListActivity extends AppCompatActivity {
                 } else {
                     Context context = view.getContext();
                     Intent intent = new Intent(context, ReiseDetailActivity.class);
-                    intent.putExtra(ReiseDetailFragment.ARG_ITEM_ID, item.id);
+                    intent.putExtra(ReiseDetailFragment.ARG_ITEM_ID, item.getId());
 
                     context.startActivity(intent);
                 }
@@ -122,8 +122,8 @@ public class ReiseListActivity extends AppCompatActivity {
 
         @Override
         public void onBindViewHolder(final ViewHolder holder, int position) {
-            holder.mIdView.setText(mValues.get(position).getId());
-            holder.mContentView.setText(mValues.get(position).getBezeichnung());
+            holder.mIdView.setText(mValues.get(position).getBezeichnung());
+            holder.mContentView.setText("" + mValues.get(position).getAuszahlung() + "€");
 
             holder.itemView.setTag(mValues.get(position));
             holder.itemView.setOnClickListener(mOnClickListener);
