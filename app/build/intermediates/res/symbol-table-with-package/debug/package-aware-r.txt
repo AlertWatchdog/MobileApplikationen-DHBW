@@ -1229,6 +1229,7 @@ id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
 id fab
+id fabEdit
 id fill
 id fill_horizontal
 id fill_vertical
@@ -1287,7 +1288,6 @@ id pin
 id progress_circular
 id progress_horizontal
 id radio
-id reise_detail
 id reise_detail_container
 id reise_list
 id right
@@ -1366,6 +1366,11 @@ id textinput_helper_text
 id textviewADatum
 id textviewAUhrzeit
 id textviewBetrag
+id textviewDADatum
+id textviewDAUhrzeit
+id textviewDBetrag
+id textviewDEDatum
+id textviewDEUhrzeit
 id textviewEDatum
 id textviewEUhrzeit
 id textviewTitel
@@ -1499,6 +1504,7 @@ layout support_simple_spinner_dropdown_item
 menu menu
 mipmap ic_launcher
 mipmap ic_launcher_round
+string abbruch_auswahl
 string abc_action_bar_home_description
 string abc_action_bar_up_description
 string abc_action_menu_overflow_description
