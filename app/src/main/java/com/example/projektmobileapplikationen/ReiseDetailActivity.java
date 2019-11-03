@@ -39,8 +39,7 @@ public class ReiseDetailActivity extends AppCompatActivity {
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener((view) -> {
             db.deleteTrip(db.getTripByID(Integer.parseInt(getIntent().getStringExtra(ReiseDetailFragment.ARG_ITEM_ID))));
-            Intent intent = new Intent(getApplicationContext(), ReiseListActivity.class);
-            startActivity(intent);
+            NavUtils.navigateUpTo(this, new Intent(this, ReiseListActivity.class));
         });
 
         // Show the Up button in the action bar.
