@@ -34,18 +34,6 @@
         app:layout_anchorGravity="top|end"
         app:srcCompat="@android:drawable/ic_menu_delete" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabEdit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="start|center_vertical"
-        android:layout_margin="100dp"
-        android:layout_marginRight="50dp"
-        app:backgroundTint="@android:color/holo_orange_light"
-        app:layout_anchor="@+id/reise_detail_container"
-        app:layout_anchorGravity="top|end"
-        app:srcCompat="@android:drawable/ic_menu_edit" />
-
     <com.google.android.material.appbar.CollapsingToolbarLayout
         android:id="@+id/toolbar_layout"
         android:layout_width="match_parent"
