@@ -1,6 +1,7 @@
 package com.example.projektmobileapplikationen;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NavUtils;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -145,8 +146,7 @@ public class Ergebnis extends AppCompatActivity implements View.OnClickListener 
                 } catch (Exception e){
                     Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_SHORT).show();
                 }
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(intent);
+                NavUtils.navigateUpTo(this, new Intent(this, MainActivity.class));
 
                 break;
         }
