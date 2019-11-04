@@ -49,10 +49,6 @@ public class ReiseListActivity extends AppCompatActivity {
         db = new DBHandler(this);
 
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        toolbar.setTitle(getTitle());
-
         //Floating Button für Graph Fragment
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener(){

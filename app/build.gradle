@@ -35,5 +35,5 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
     implementation 'com.google.android.gms:play-services-ads:18.2.0'
     implementation 'androidx.gridlayout:gridlayout:1.0.0'
-    implementation files('C:\\Users\\fwolf2\\AndroidStudioProjects\\MobileApplikationen-DHBW\\.idea\\libraries\\achartengine-1.2.0.jar')
+    implementation files('G:\\Dokumente\\Uni\\MobileApplikationen\\MobileApplikationen-DHBW\\.idea\\libraries\\achartengine-1.2.0.jar')
 }

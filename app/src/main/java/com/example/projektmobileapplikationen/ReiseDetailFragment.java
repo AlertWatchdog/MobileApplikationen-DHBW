@@ -54,12 +54,6 @@ public class ReiseDetailFragment extends Fragment {
             // to load content from a content provider.
 
             reise = db.getTripByID(Integer.parseInt(getArguments().get(ARG_ITEM_ID).toString()));
-
-            Activity activity = this.getActivity();
-            CollapsingToolbarLayout appBarLayout = (CollapsingToolbarLayout) activity.findViewById(R.id.toolbar_layout);
-            if (appBarLayout != null) {
-                appBarLayout.setTitle(reise.getBezeichnung());
-            }
         }
     }
 
@@ -70,6 +64,7 @@ public class ReiseDetailFragment extends Fragment {
 
         // Show the dummy content as text in a TextView.
         if (reise != null) {
+            ((TextView) rootView.findViewById(R.id.textViewBezeichnung)).setText(reise.getBezeichnung());
             ((TextView) rootView.findViewById(R.id.textviewDADatum)).setText(reise.getStartDatum());
             ((TextView) rootView.findViewById(R.id.textviewDAUhrzeit)).setText(reise.getStartZeit());
             ((TextView) rootView.findViewById(R.id.textviewDEDatum)).setText(reise.getEndDatum());

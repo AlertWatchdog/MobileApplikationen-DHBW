@@ -1162,7 +1162,6 @@ id alignBounds
 id alignMargins
 id all
 id always
-id app_bar
 id async
 id auto
 id barrier
@@ -1204,11 +1203,11 @@ id design_menu_item_action_area
 id design_menu_item_action_area_stub
 id design_menu_item_text
 id design_navigation_view
-id detail_toolbar
 id dialog_button
 id dimensions
 id direct
 id disableHome
+id divider
 id editAJahr
 id editAMinute
 id editAMonat
@@ -1377,8 +1376,6 @@ id time
 id title
 id titleDividerNoCustom
 id title_template
-id toolbar
-id toolbar_layout
 id top
 id topPanel
 id touch_outside

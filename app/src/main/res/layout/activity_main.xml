@@ -260,6 +260,7 @@
                 android:layout_marginRight="10dp"
                 android:text="Berechnen"
                 android:background="@drawable/button"
+                android:layout_marginBottom="20dp"
                 />
 
             <Button
