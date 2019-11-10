@@ -35,7 +35,6 @@ public class Ergebnis extends AppCompatActivity implements View.OnClickListener 
     private Button buttonSpeichern;
 
     public Ergebnis(){
-
     }
 
     public Ergebnis (Date s , Date e){
@@ -69,7 +68,6 @@ public class Ergebnis extends AppCompatActivity implements View.OnClickListener 
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy HH:mmm");
             String start = (""+ werte[0] + "." + werte[1]+ "." + werte[2] + " " + werte[3] + ":" + werte[4]);
             Date startdatum = simpleDateFormat.parse(start);
-            //startdatum = simpleDateFormat.parse(start);
             String end = (""+ werte[5] + "." + werte[6]+ "." + werte[7] + " " + werte[8] + ":" + werte[9]);
             Date enddatum = new Date();
             enddatum = simpleDateFormat.parse(end);
@@ -95,18 +93,16 @@ public class Ergebnis extends AppCompatActivity implements View.OnClickListener 
         }
 
         if (temp.compareTo(temp2) == 0){
-            if((werte[8]*60 + werte[9] - werte[3]* 60 + werte[4] > 720)){
+            if((werte[8]*60 + werte[9] - werte[3]* 60 + werte[4] > 479)){ //bewusst >479 gewählt. Weniger rechenlast als >= 480
                 ergebnis = ergebnis +12;
             }
         }
 
-
-
         if (temp.compareTo(temp2) < 0){
-            if (werte[3] < 12 || (werte[3] == 12 && werte[4] == 0)){
+            if (werte[3] < 16 || (werte[3] == 16 && werte[4] == 0)){
                 ergebnis = ergebnis + 12;
             }
-            if (werte[8] > 12 || (werte[8] == 12 && werte[9] == 0)){
+            if (werte[8] > 8 || (werte[8] == 8 && werte[9] == 0)){
                 ergebnis = ergebnis + 12;
             }
 
@@ -114,10 +110,7 @@ public class Ergebnis extends AppCompatActivity implements View.OnClickListener 
             ergebnis = ergebnis + 24 * ((int)(difference / (1000 * 60 * 60 * 24))-1);
         }
 
-
         textErgebnis.setText("" + ergebnis + "€");
-
-
     }
 
     private void save(){
