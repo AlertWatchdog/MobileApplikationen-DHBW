@@ -102,7 +102,7 @@ public class Ergebnis extends AppCompatActivity implements View.OnClickListener 
             if (werte[3] < 16 || (werte[3] == 16 && werte[4] == 0)){
                 ergebnis = ergebnis + 12;
             }
-            if (werte[8] > 8 || (werte[8] == 8 && werte[9] == 0)){
+            if (werte[8] > 7 ){
                 ergebnis = ergebnis + 12;
             }
 
