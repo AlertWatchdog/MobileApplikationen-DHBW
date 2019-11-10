@@ -72,6 +72,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch(view.getId()){
             case R.id.buttonZurücksetzen:
 
+                //Löscht den Inhalt der Felder
                 editTitel.setText("");
                 editATag.setText("");
                 editAMonat.setText("");
@@ -110,6 +111,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if (amonat > 12){
                     amonat = 12;
                 }
+                if (amonat < 1){
+                    amonat = 1;
+                }
                 if (atag < 0){
                     atag = 0;
                 }
@@ -130,6 +134,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 if (emonat > 12){
                     emonat = 12;
+                }
+                if (emonat < 1){
+                    emonat = 1;
                 }
                 if (etag < 0){
                     etag = 0;

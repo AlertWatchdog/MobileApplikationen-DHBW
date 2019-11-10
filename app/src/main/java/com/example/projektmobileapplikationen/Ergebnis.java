@@ -65,6 +65,8 @@ public class Ergebnis extends AppCompatActivity implements View.OnClickListener 
         db = new DBHandler(this);
 
         try {
+            //Setzen der bisherigen Werte in der neuen Activity
+
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy HH:mmm");
             String start = (""+ werte[0] + "." + werte[1]+ "." + werte[2] + " " + werte[3] + ":" + werte[4]);
             Date startdatum = simpleDateFormat.parse(start);
@@ -87,11 +89,15 @@ public class Ergebnis extends AppCompatActivity implements View.OnClickListener 
         GregorianCalendar temp = new GregorianCalendar(werte[2], werte[1]-1, werte[0]);
         GregorianCalendar temp2 = new GregorianCalendar(werte[7], werte[6]-1, werte[5]);
 
+        //Berechnung der Spesen durchführen
+
+        //Enddatum vor dem Startdatum
         if (temp.compareTo(temp2) > 0){
             Toast.makeText(getApplicationContext(), "Das Enddatum liegt vor dem Startdatum", Toast.LENGTH_SHORT).show();
             finish();
         }
 
+        //Start- und Enddatum identisch
         if (temp.compareTo(temp2) == 0){
             if((werte[8]*60 + werte[9] - werte[3]* 60 + werte[4] > 479)){ //bewusst >479 gewählt. Weniger rechenlast als >= 480
                 ergebnis = ergebnis +12;
